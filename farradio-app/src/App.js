@@ -1,10 +1,12 @@
-
+import React, { Component } from 'react';
 import NavegationBar from './componets/Navbar';
 
-function App() {
+class  App extends Component{
+  render(){
   return (
-  <NavegationBar/>
+    <NavegationBar/>
   );
+  }
 }
 
 export default App;
