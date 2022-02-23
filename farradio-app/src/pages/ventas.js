@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Ventas extends Component {
-    render() {
+export default function Ventas(){
         return (
             <div>
                  <h1>Ventas</h1>
             </div>
         );
-    }
-}
-
-export default Ventas;
+};

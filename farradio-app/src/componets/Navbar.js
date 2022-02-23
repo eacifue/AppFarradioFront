@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {Nav, Form, FormControl, Button, Navbar, Container} from 'react-bootstrap';
-import {BrowserRouter as Router, Route, Routes,Link, Switch } from 'react-router-dom';
+import {BrowserRouter as Router, Route, Routes,Link } from 'react-router-dom';
 import Ventas from '../pages/ventas';
 import Inventario from '../pages/inventario';
 
-export default class NavegationBar extends Component{
-    render(){
+export default function NavegationBar(){
+
     return(
         <Router>
             <div>
@@ -28,5 +28,4 @@ export default class NavegationBar extends Component{
             </div>
         </Router>
     );
-    }
 };

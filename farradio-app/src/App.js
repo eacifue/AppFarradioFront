@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import NavegationBar from './componets/Navbar';
 
-class  App extends Component{
-  render(){
+ function  App(){
   return (
     <NavegationBar/>
-  );
-  }
-}
+  )
+ };
+
 
 export default App;
