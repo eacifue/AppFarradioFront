@@ -6,8 +6,15 @@ export default function Inventario(props) {
   const [searchText, setSearchText] = useState('');
   const [products, setProducts] = useState([]);
 
+  useEffect(() => {
+    if (searchText) {
+      search();
+    }
+  }, [searchText]);  
+
   const search = async () => {
     try {
+      setProducts([]);
       const res = await fetch(`http://localhost:9000/api/productos/${searchText}`);
       const data = await res.json();
       setProducts(data);
@@ -16,24 +23,13 @@ export default function Inventario(props) {
     }
   };
 
-  useEffect(() => {
-    if (searchText) {
-      search();
-    }
-  }, [searchText]);
 
-  const handleSearchClick = () => {
+  const handleSearchClick = (e) => {
+    e.preventDefault();
+    setSearchText(e.target.previousSibling.value);
     search();
   };
 
-  const handleEnterKeyPressed = (e) => {
-    const text = e.target.value;
-    setSearchText(text);
-
-    if (e.key === 'Enter') {
-      search();
-    }
-  };
     return (
     <Container fluid="md">
         <Row>
@@ -42,8 +38,8 @@ export default function Inventario(props) {
                     <Form.Group className="sb-2" controlId="txtSearch">
                         <Form.Label><b>Producto a Buscar</b></Form.Label>
                         <InputGroup className="mb-3">
-                            <Form.Control type="text"  onKeyPress={handleEnterKeyPressed} placeholder="Search" />
-                            <Button variant="outline-primary">Buscar</Button>{}
+                            <Form.Control type="text"  placeholder="Search" />
+                            <Button variant="outline-primary"  onClick={handleSearchClick}>Buscar</Button>{}
                         </InputGroup>
                     </Form.Group>
                     <br></br>
